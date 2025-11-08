@@ -1,1 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
 @import "tailwindcss";
+@layer theme;
+
+@font-face {
+  font-family: "Berg Western";
+  font-style: regular;
+  font-display: swap;
+  src: url("./font/Berg Western Regular.woff2") format("woff2");
+}
+
+@theme {
+  --font-display: "Berg Western";
+  --font-serif: 'Libre Baskerville', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+
+  --color-blueSkys: #3d6fbc;
+  --color-greenLeap: #bfbd66;
+  --color-pinky: #cf9aa1;
+
+  --color-dullBlue: #598ac0;
+  --color-neutralBrown: #aa9481;
+  --color-burntOrange: #eb7a20;
+  --color-darkGreen: #9b963e;
+  --color-brightGreen: #b5ae3b;
+  --color-creamWhite: #e9e3d2;
+  --color-brownn: #73370b;
+  --color-skyBlue: #58bff7;
+}
