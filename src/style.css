@@ -13,9 +13,10 @@
 @theme {
   --font-display: "Berg Western";
   --font-serif: 'Libre Baskerville', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+  --breakpoint-3xl: 120rem;
 
   --color-blueSkys: #3d6fbc;
-  --color-greenLeap: #bfbd66;
+  --color-greenLeap: #D6E66D;
   --color-pinky: #cf9aa1;
 
   --color-dullBlue: #598ac0;
@@ -26,4 +27,42 @@
   --color-creamWhite: #e9e3d2;
   --color-brownn: #73370b;
   --color-skyBlue: #58bff7;
+
+
+  --color-primary: var(--color-blueSkys);
+  --color-primary2: var(--color-greenLeap);
+  --color-primary3: var(--color-pinky);
 }
+
+
+/* page footer changes */
+.f-heading {
+  @apply font-display text-center text-[43vw] -ml-3 md:-ml-8;
+}
+
+body[data-page="home"] .f-heading--home {
+  @apply text-primary2;
+}
+
+body[data-page="work"] .f-heading--work {
+  @apply text-primary;
+}
+
+body[data-page="detail"] .f-heading--detail {
+  @apply text-primary3;
+}
+
+
+.f-bottom {
+  @apply w-full p-6 md:p-8 flex flex-col md:flex-row md:justify-between items-center gap-3;
+}
+
+body[data-page="home"] .f-bottom--home {
+  @apply bg-primary;
+}
+
+body[data-page="work"] .f-bottom--work,
+.f-bottom--detail {
+  @apply bg-black;
+}
+
