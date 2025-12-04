@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap');
 
 @import "tailwindcss";
 @layer theme;
@@ -13,6 +13,7 @@
 @theme {
   --font-display: "Berg Western";
   --font-serif: 'Libre Baskerville', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+  --font-script: 'Cedarville Cursive', cursive;
   --breakpoint-3xl: 120rem;
 
   --color-blueSkys: #3d6fbc;
@@ -32,6 +33,17 @@
   --color-primary: var(--color-blueSkys);
   --color-primary2: var(--color-greenLeap);
   --color-primary3: var(--color-pinky);
+}
+
+.text-wordmark {
+  font-size: clamp(6rem, 40vw, 30rem);
+  line-height: 0.75;
+  text-align: center;
+}
+
+.text-massive-serif {
+  font-size: clamp(3rem, 7vw, 7rem);
+  line-height: 1.3;
 }
 
 
