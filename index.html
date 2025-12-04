@@ -9,12 +9,19 @@
     <script src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   </head>
-  <body class="bg-primary text-white overflow-x-hidden selection:bg-pinky selection:text-white " data-page="home">
+  <body class="bg-primary text-white selection:bg-pinky selection:text-white " data-page="home">
+    <a href="#main-content" class="fixed top-0 left-0 w-full z-100 bg-primary2 text-black text-center font-bold font-serif uppercase tracking-widest py-4 -translate-y-full focus:translate-y-0 transition-transform duration-300">
+      Skip to main content
+    </a>
+
     <load src="partials/nav.html" />
 
-    <main class="w-full">
+    <main id="main-content" class="w-full">
       <!-- hero -->
-      <section class="relative w-full flex flex-col justify-between mt-10 p-6 md:p-12 pb-12 max-w-7xl mx-auto mb-20">
+      <section 
+        tabindex="0" 
+        aria-label="Introduction" 
+        class="focus:outline-none focus:ring-2 focus:ring-primary2 focus:ring-offset-2 focus:ring-offset-primary relative w-full flex flex-col justify-between mt-10 p-6 md:p-12 pb-12 max-w-7xl mx-auto mb-20">
 
         <div class="relative w-full border-b border-transparent mb-8 lg:mb-25">
 
@@ -45,14 +52,16 @@
       </section>
 
       <!-- services -->
-      <section 
+      <section
+        tabindex="0"
+        aria-label="Services"
         x-data="{ step: 0, t: null }"
         x-init="$watch('step', value => { 
                   if (value >= 1 && value < 3) {
                     setTimeout(() => { if(step === value) step++ }, 800) 
                   }
                 })"
-        class="relative w-full bg-black text-white px-6 md:px-12 pt-10 pb-36 md:pt-20 md:pb-30">
+        class="focus:outline-none focus:ring-2 focus:ring-primary2 focus:ring-inset relative w-full bg-black text-white px-6 md:px-12 pt-10 pb-36 md:pt-20 md:pb-30">
 
         <div class="max-w-6xl mx-auto relative">
           <p class="font-serif text-xl mb-12 text-gray-300">Services</p>
@@ -100,7 +109,10 @@
       </section>
 
       <!-- vision -->
-      <section class="max-w-7xl mx-auto p-6 md:p-12 pb-12">
+      <section
+        tabindex="0"
+        aria-label="Our Vision" 
+        class="focus:outline-none focus:ring-2 focus:ring-primary2 focus:ring-offset-2 focus:ring-offset-primary max-w-7xl mx-auto p-6 md:p-12 pb-12">
         <div class="flex flex-col gap-y-4 md:gap-y-6 mt-16 md:mt-8 items-start relative z-10">
           <p class="font-serif text-lg pt-2 mb-2">Our Vision</p>
 
@@ -110,14 +122,17 @@
             </p>
 
             <div class="absolute right-0 -bottom-16 md:-bottom-20 md:right-20 transform rotate-6">
-              <span class="font-script text-black text-3xl md:text-5xl opacity-90">let's do it</span>
+              <a href="contact/" class="font-script text-black text-3xl md:text-5xl opacity-90 hover:text-primary2 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary2 focus:ring-offset-2 focus:ring-offset-primary">let's do it</a>
             </div>
           </div>
         </div>
       </section>
 
       <!-- team -->
-      <section class="bg-linear-180 from-primary from-20% to-black mt-32 lg:mt-40">
+      <section
+        tabindex="0"
+        aria-label="Team"
+        class="focus:outline-none focus:ring-2 focus:ring-primary2 focus:ring-inset bg-linear-180 from-primary from-20% to-black mt-32 lg:mt-40">
         <div class="max-w-7xl mx-auto">
           <p class="font-serif text-lg ml-6 md:ml-12 pt-2 mb-14">Team</p>
 
@@ -192,9 +207,12 @@
       </section>
 
       <!-- idea -->
-      <section class="bg-black w-full pt-16 md:pt-30 mx-auto">
+      <section
+        tabindex="0"
+        aria-label="idea contact" 
+        class="bg-black w-full pt-16 md:pt-30 mx-auto">
         <div class="relative max-w-7xl mx-auto">
-          <div class="hidden md:block absolute top-1/3 left-20 w-64 aspect-square z-0 opacity-90">
+          <div class="focus:outline-none focus:ring-2 focus:ring-primary2 focus:ring-inset hidden md:block absolute top-1/3 left-20 w-64 aspect-square z-0 opacity-90">
             <img
               src="src/images/horses.webp"
               alt="horses in a field"
@@ -224,13 +242,13 @@
             </h3>
 
             <a href="contact/"
-              class="font-serif text-primary2 text-xl md:text-2xl mt-12 hover:text-white hover:underline underline-offset-10 transition-colors lowercase tracking-wide">
+              class="p-3 font-serif text-primary2 text-xl md:text-2xl mt-12 hover:text-white hover:underline underline-offset-10 transition-colors lowercase tracking-wide focus:outline-none focus:ring-2 focus:ring-primary2 focus:ring-inset">
               get in touch
             </a>
 
             <!-- i need to get the soc links -->
             <div class="flex items-center gap-6 mt-20 md:mt-24">
-              <a href="#" class="p-1 hover:text-primary2 transition-colors group">
+              <a href="#" class="hover:text-primary2 transition-colors group focus:outline-none focus:ring-2 focus:ring-primary2 focus:ring-inset p-2">
                 <svg
                   viewBox="0 0 40 40"
                   fill="none"
@@ -242,10 +260,10 @@
                   />
                 </svg>
               </a>
-              <a href="#" class="text-white hover:text-primary2 transition-colors">
+              <a href="#" class="text-white hover:text-primary2 transition-colors focus:outline-none focus:ring-2 focus:ring-primary2 focus:ring-inset p-2">
                 <svg
                   viewBox="0 0 36 36"
-                  fill="none"
+                  fill="none" 
                   xmlns="http://www.w3.org/2000/svg"
                   class="size-8 md:size-12">
                   <path
