@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>westie</title>
+    <meta name="description" content="westie design home page" />
+    <script src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+  <body class="bg-black text-white selection:bg-pinky selection:text-white" data-page="work">
+    <a href="#main-content" class="fixed top-0 left-0 w-full z-100 bg-primary2 text-black text-center font-bold font-serif uppercase tracking-widest py-4 -translate-y-full focus:translate-y-0 transition-transform duration-300">
+      Skip to main content
+    </a>
+    <load src="partials/nav.html" />
+
+
+    <main id="main-contnet">
+      <div class="w-full h-60 md:h-120 lg:h-160 overflow-hidden items-center flex">
+          <img src="/src/images/skirock.webp" alt="skier jumping off rock" class="mt-30 md:mt-60">
+      </div>
+
+    
+      <section 
+        id="work"
+        class="bg-black text-white px-6 md:px-12 py-20 md:py-32 min-h-screen"
+        x-data="{
+          activeTab: 'UX RESEARCH',
+          projects: {
+            'UX RESEARCH': [
+              { title: 'MAKING GOLF COOL', link: '#', img: '/src/images/golf.webp' },
+              { title: 'STOKE SKI BUDS', link: 'skibuds/', img: '/src/images/ski.webp' },
+              { title: 'LATE NIGHTS ARE FOR MUSIC', link: '#', img: '/src/images/music.webp' },
+              { title: 'PERFORMANCE', link: '#', img: '/src/images/dchair.webp' }
+            ],
+            'INFORMATION ARCHITECTURE': [
+              { title: 'SITE MAPPING', link: '#', img: 'https://images.unsplash.com/photo-1591381287254-b3349c60bf9b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+              { title: 'USER FLOWS', link: '#', img: 'https://images.unsplash.com/photo-1646617747563-4f080bddf282?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' }
+            ],
+            'UI DESIGN': [
+              { title: 'INTERFACE', link: '#', img: 'https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&q=80&w=800' },
+              { title: 'TYPOGRAPHY', link: '#', img: 'https://images.unsplash.com/photo-1596299786007-9974099be52b?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+              { title: 'COLOR THEORY', link: '#', img: 'https://images.unsplash.com/photo-1502691876148-a84978e59af8?auto=format&fit=crop&q=80&w=800' },
+              { title: 'MOBILE FIRST', link: '#', img: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=800' }
+            ]
+          }
+        }">
+
+        <div class="max-w-7xl mx-auto">
+          <div class="flex flex-col lg:flex-row justify-between items-start mb-16 md:mb-24 gap-12">
+
+            <div class="max-w-4xl">
+              <h2 class="font-display text-primary2 text-5xl md:text-7xl lg:text-8xl">
+                Work &mdash; <br />
+                <span x-text="activeTab"></span>
+              </h2>
+            </div>
+
+            <div class="flex flex-col items-start lg:items-end gap-4 font-serif text-lg md:text-xl">
+              <template x-for="tab in Object.keys(projects)" :key="tab">
+                <button
+                  @click="activeTab = tab"
+                  class="uppercase tracking-wide hover:text-primary2 transition-colors text-left lg:text-right"
+                  :class="activeTab === tab ? 'text-white underline underline-offset-8 decoration-2' : 'text-white/60'"
+                  x-text="tab"
+                ></button>
+              </template>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+            <template x-for="project in projects[activeTab]" :key="project.title">
+              <a
+                :href="project.link"
+                class="relative block aspect-4/3 group overflow-hidden bg-white/5 cursor-pointer"
+                x-transition:enter="transition ease-out duration-500"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100">
+                <img
+                  :src="project.img"
+                  :alt="project.title"
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100"/>
+
+                <div class="absolute bottom-0 left-0 p-6 md:p-8 w-full bg-linear-to-t from-black/80 to-transparent">
+                  <h3
+                    class="font-serif text-white text-xl md:text-2xl uppercase tracking-wide group-hover:text-primary2 transition-colors"
+                    x-text="project.title">
+                  </h3>
+                </div>
+              </a>
+            </template>
+          </div>
+          
+        </div>
+      </section>
+
+
+    </main>
+    
+    <load src="partials/footer.html" />
+    <script type="module" src="/src/javascript/main.js"></script>
+  </body>
+</html>

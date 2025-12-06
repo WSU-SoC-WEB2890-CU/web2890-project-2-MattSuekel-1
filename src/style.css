@@ -46,6 +46,23 @@
   line-height: 1.3;
 }
 
+/* page nav changes */
+.h-nav {
+  @apply sticky top-0 z-50 transition-all duration-300;
+}
+
+body[data-page="home"] .h-nav--home {
+  @apply bg-primary;
+}
+
+body[data-page="work"] .h-nav--work {
+  @apply bg-black;
+}
+
+body[data-page="detail"] .h-nav--detail {
+  @apply bg-primary;
+}
+
 
 /* page footer changes */
 .f-heading {
