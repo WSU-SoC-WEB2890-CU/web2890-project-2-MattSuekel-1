@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap');
+
+@import "tailwindcss";
+@layer theme;
+
+@font-face {
+  font-family: "Berg Western";
+  font-style: regular;
+  font-display: swap;
+  src: url("./font/Berg Western Regular.woff2") format("woff2");
+}
+
+@theme {
+  --font-display: "Berg Western";
+  --font-serif: 'Libre Baskerville', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+  --font-script: 'Cedarville Cursive', cursive;
+  --breakpoint-3xl: 120rem;
+
+  --color-blueSkys: #3d6fbc;
+  --color-greenLeap: #D6E66D;
+  --color-pinky: #cf9aa1;
+
+  --color-dullBlue: #598ac0;
+  --color-neutralBrown: #aa9481;
+  --color-burntOrange: #eb7a20;
+  --color-darkGreen: #9b963e;
+  --color-brightGreen: #b5ae3b;
+  --color-creamWhite: #e9e3d2;
+  --color-brownn: #73370b;
+  --color-skyBlue: #58bff7;
+
+
+  --color-primary: var(--color-blueSkys);
+  --color-primary2: var(--color-greenLeap);
+  --color-primary3: var(--color-pinky);
+}
+
+.text-wordmark {
+  font-size: clamp(6rem, 40vw, 30rem);
+  line-height: 0.75;
+  text-align: center;
+}
+
+.text-massive-serif {
+  font-size: clamp(3rem, 7vw, 7rem);
+  line-height: 1.3;
+}
+
+/* page nav changes */
+.h-nav {
+  @apply sticky top-0 z-50 transition-all duration-300;
+}
+
+body[data-page="home"] .h-nav--home {
+  @apply bg-primary;
+}
+
+body[data-page="work"] .h-nav--work {
+  @apply bg-black;
+}
+
+body[data-page="detail"] .h-nav--detail {
+  @apply bg-primary;
+}
+
+
+/* page footer changes */
+.f-heading {
+  @apply font-display text-center text-[43vw] -ml-3 md:-ml-8;
+}
+
+body[data-page="home"] .f-heading--home {
+  @apply text-primary2;
+}
+
+body[data-page="work"] .f-heading--work {
+  @apply text-primary;
+}
+
+body[data-page="detail"] .f-heading--detail {
+  @apply text-primary3;
+}
+
+
+.f-bottom {
+  @apply w-full p-6 md:p-8 flex flex-col md:flex-row md:justify-between items-center gap-3;
+}
+
+body[data-page="home"] .f-bottom--home {
+  @apply bg-primary;
+}
+
+body[data-page="work"] .f-bottom--work,
+.f-bottom--detail {
+  @apply bg-black;
+}
+
+
+

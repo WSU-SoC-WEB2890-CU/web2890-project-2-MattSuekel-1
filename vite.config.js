@@ -1,42 +1,20 @@
-
-const path = require("path")
-const glob = require("glob")
-
-import { defineConfig } from "vite"
-import eslint from "@rollup/plugin-eslint"
-
-let input = {}
-
-glob
-  .sync("./src/**/*.html")
-  .map((file) => {
-    return [file.substring(`.${path.sep}src${path.sep}`.length), file]
-  })
-  .forEach((f) => {
-    input[f[0]] = f[1]
-  })
+import { defineConfig } from "vite";
+import tailwindcss from "@tailwindcss/vite";
+import htmlInject from 'vite-plugin-html-inject';
 
 export default defineConfig({
-  root: "src",
-  build: {
-    manifest: true,
-    outDir: "../dist",
-    emptyOutDir: true,
-    rollupOptions: {
-      input
-    },
-  },
-  server: {
-    port: 8080,
-    open: "/",
-  },
   plugins: [
-    {
-      ...eslint({
-        include: ["src/**/*.js"],
-      }),
-      enforce: "pre",
-      apply: "build",
-    },
+    tailwindcss(),
+    htmlInject()
   ],
-})
+  build: {
+    rollupOptions: {
+      input: {
+        main: "index.html",
+        about: "about/index.html",
+        contact: "contact/index.html",
+        work: "work/index.html",
+      },
+    },
+  },
+});

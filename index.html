@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>westie</title>
+    <meta name="description" content="westie design home page" />
+    <script src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+  <body class="bg-primary text-white selection:bg-pinky selection:text-white " data-page="home">
+    <a href="#main-content" class="fixed top-0 left-0 w-full z-100 bg-primary2 text-black text-center font-bold font-serif uppercase tracking-widest py-4 -translate-y-full focus:translate-y-0 transition-transform duration-300">
+      Skip to main content
+    </a>
+
+    <load src="partials/nav.html" />
+
+    <main id="main-content" class="w-full">
+      <!-- hero -->
+      <section 
+        tabindex="0" 
+        aria-label="Introduction" 
+        class="focus:outline-none focus:ring-2 focus:ring-primary2 focus:ring-offset-2 focus:ring-offset-primary relative w-full flex flex-col justify-between mt-10 p-6 md:p-12 pb-12 max-w-7xl mx-auto mb-20">
+
+        <div class="relative w-full border-b border-transparent mb-8 lg:mb-25">
+
+          <h1 class="font-display text-primary2 text-wordmark uppercase text-center w-full tracking-tighter origin-top">
+            Westie
+          </h1>
+
+          <p class="absolute -bottom-6 lg:-bottom-12 right-[12%] lg:right-[20%] text-black font-script text-3xl md:text-5xl rotate-[-4deg]">
+            small dog.
+          </p>
+          <p class="absolute -bottom-16 md:-bottom-20 lg:-bottom-28 right-0 lg:right-[9%] text-black font-script text-3xl md:text-5xl rotate-[-8deg]">
+            big ideas
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-y-4 md:gap-y-6 mt-16 md:mt-8 items-start relative z-10 mx-auto">
+          <p class="font-serif text-lg pt-2 mb-2">About Us</p>
+
+          <h2 class="font-serif text-lg sm:text-xl md:text-2xl font-bold leading-tight">
+            Born from exhaustion. Built on stoke.
+          </h2>
+
+          <p class="font-serif text-md sm:text-lg md:text-xl leading-relaxed text-creamWhite max-w-6xl">
+            Westie is a web design agency based in the north of utah, collaborating with clients and partners within the rockies. We got tired of the traditional agency model. So we built a better way for ourselves and the brands that deserve it -- like you.
+          </p>
+        </div>
+
+      </section>
+
+      <!-- services -->
+      <section
+        tabindex="0"
+        aria-label="Services"
+        x-data="{ step: 0, t: null }"
+        x-init="$watch('step', value => { 
+                  if (value >= 1 && value < 3) {
+                    setTimeout(() => { if(step === value) step++ }, 800) 
+                  }
+                })"
+        class="focus:outline-none focus:ring-2 focus:ring-primary2 focus:ring-inset relative w-full bg-black text-white px-6 md:px-12 pt-10 pb-36 md:pt-20 md:pb-30">
+
+        <div class="max-w-6xl mx-auto relative">
+          <p class="font-serif text-xl mb-12 text-gray-300">Services</p>
+
+          <div 
+            x-intersect.threshold.0.5="t = setTimeout(() => step = 1, 2500)" 
+            x-intersect:leave="clearTimeout(t); step = 0"
+            class="relative z-10 w-full">
+            <h3 class="font-serif text-massive-serif tracking-tight">
+              <span class="block">UX Research,</span>
+              <span class="block">Information Architecture,</span>
+              <span class="block">Discovery,</span>
+              <span class="block">Market Research,</span>
+              <span class="block">Web Design,</span>
+              <span class="block">Web Audits, Print</span>
+            </h3>
+          </div>
+
+          <div 
+            class="absolute top-[85%] lg:-top-30 xl:top-10 lg:right-[2%] xl:-right-20 2xl:-right-40 w-full md:w-125 bg-primary3 rounded-sm p-6 z-20 shadow-2xl transform transition-all duration-700 ease-out origin-bottom-left hover:opacity-0 cursor-pointer opacity-0 translate-y-30 lg:rotate-2"
+            :class="step >= 1 ? 'opacity-100 translate-y-0 rotate-0' : 'opacity-0 translate-y-12 rotate-2'">
+              <p class="font-serif text-darkRed text-lg md:text-xl leading-relaxed">
+                we believe in building a strong foundation. doing it the right way not the fast way. we specialize in ux research and IA.
+              </p>
+          </div>
+
+          <div 
+            class=" hidden lg:block absolute bottom-[20%] xl:bottom-[30%] 2xl:bottom-[40%] lg:right-20 xl:right-0 2xl:-right-20 3xl:-left-80 z-20 transform transition-all duration-700 delay-300 ease-out origin-center cursor-pointer opacity-0 scale-75"
+            :class="step >= 2 ? 'opacity-100 scale-100' : 'opacity-0 scale-75'">
+            <div class="p-4 w-55 -rotate-3">
+              <img src="src/images/horse.webp" alt="">
+            </div>
+          </div>
+
+                
+          <div 
+            class="hidden 3xl:block absolute bottom-[25%] -right-40 z-20 transform transition-all duration-700 delay-500 ease-out origin-center cursor-pointer opacity-0 translate-y-24"
+            :class="step >= 3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-24'">
+            <div class="w-72 rotate-6">
+              <img src="src/images/skicrop.webp" alt="Skier" class="">
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- vision -->
+      <section
+        tabindex="0"
+        aria-label="Our Vision" 
+        class="focus:outline-none focus:ring-2 focus:ring-primary2 focus:ring-offset-2 focus:ring-offset-primary max-w-7xl mx-auto p-6 md:p-12 pb-12">
+        <div class="flex flex-col gap-y-4 md:gap-y-6 mt-16 md:mt-8 items-start relative z-10">
+          <p class="font-serif text-lg pt-2 mb-2">Our Vision</p>
+
+          <div class="relative w-full">
+            <p class="font-serif text-md sm:text-lg md:text-xl leading-relaxed text-creamWhite max-w-6xl">
+              To create, to build, and get our slice of pie from this world. We see you. We see brands who have the potential to be something more. It’s now or never, let’s talk?
+            </p>
+
+            <div class="absolute right-0 -bottom-16 md:-bottom-20 md:right-20 transform rotate-6">
+              <a href="/contact/" class="font-script text-black text-3xl md:text-5xl opacity-90 hover:text-primary2 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary2 focus:ring-offset-2 focus:ring-offset-primary">let's do it</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- team -->
+      <section
+        id="team"
+        tabindex="0"
+        aria-label="Team"
+        class="focus:outline-none focus:ring-2 focus:ring-primary2 focus:ring-inset bg-linear-180 from-primary from-20% to-black mt-32 lg:mt-40">
+        <div class="max-w-7xl mx-auto">
+          <p class="font-serif text-lg ml-6 md:ml-12 pt-2 mb-14">Team</p>
+
+          <div class="grid grid-cols-1 md:grid-cols-12">
+
+            <div class="md:col-span-6 flex flex-col h-full group">
+              <div class="w-full overflow-hidden">
+                <img
+                  src="src/images/faith.webp"
+                  alt="Faith"
+                  class="w-full h-full object-cover object-center group-hover:scale-105 transition-all duration-2500"/>
+              </div>
+
+              <div class="bg-primary2 text-black h-25 font-serif font-bold p-4 uppercase flex flex-col justify-center">
+                <p class="pb-1 text-xl">Faith</p>
+                <p class="text-sm md:text-base leading-tight">
+                  Founder + Designer/UX <br />Researcher
+                </p>
+              </div>
+            </div>
+
+            <div class="md:col-span-6 flex flex-col h-full group">
+              <div class="w-full overflow-hidden">
+                <img
+                  src="src/images/mat.webp"
+                  alt="Matt"
+                  class="w-full h-full object-cover object-center group-hover:scale-105 transition-all duration-2500"/>
+              </div>
+
+              <div class="bg-primary2 text-black h-25 font-serif font-bold p-4 uppercase flex flex-col justify-center">
+                <p class="pb-1 text-xl">Matt</p>
+                <p class="text-sm md:text-base leading-tight">
+                  Co-Founder + Developer + Designer
+                </p>
+              </div>
+            </div>
+
+            <div class="md:col-span-6 flex flex-col h-full group">
+              <div class="w-full overflow-hidden">
+                <img
+                  src="src/images/lou.webp"
+                  alt="Matt"
+                  class="w-full object-cover object-center group-hover:scale-105 transition-all duration-2500"/>
+              </div>
+
+              <div class="bg-primary2 text-black h-25 font-serif font-bold p-4 uppercase flex flex-col justify-center">
+                <p class="pb-1 text-xl">Louie</p>
+                <p class="text-sm md:text-base leading-tight">
+                  Talks Back + Adventurer
+                </p>
+              </div>
+            </div>
+
+            <div class="md:col-span-6 flex flex-col h-full group">
+              <div class="w-full overflow-hidden">
+                <img
+                  src="src/images/milo.webp"
+                  alt="Matt"
+                  class="w-full h-full object-cover object-center group-hover:scale-105 transition-all duration-2500"/>
+              </div>
+
+              <div class="bg-primary2 text-black h-25 font-serif font-bold p-4 uppercase flex flex-col justify-center">
+                <p class="pb-1 text-xl">Milo</p>
+                <p class="text-sm md:text-base leading-tight">
+                  Big Cuddler + Food Snob
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- idea -->
+      <section
+        tabindex="0"
+        aria-label="idea contact" 
+        class="bg-black w-full pt-16 md:pt-30 mx-auto">
+        <div class="relative max-w-7xl mx-auto">
+          <div class="focus:outline-none focus:ring-2 focus:ring-primary2 focus:ring-inset hidden md:block absolute top-1/3 left-20 w-64 aspect-square z-0 opacity-90">
+            <img
+              src="src/images/horses.webp"
+              alt="horses in a field"
+              class="w-full h-full object-cover grayscale brightness-75 duration-700"/>
+          </div>
+
+          <div class="hidden md:block absolute -top-10 right-10 w-72 aspect-4/3 z-0 opacity-80">
+            <img
+              src="src/images/bike.webp"
+              alt="mountain bike moving"
+              class="w-full h-full object-cover duration-700"/>
+          </div>
+
+          <div class="hidden lg:block absolute -bottom-16 right-32 w-64 aspect-4/3 z-0 opacity-90">
+            <img
+              src="src/images/skijump.webp"
+              alt="Skier jumping"
+              class="w-full h-full object-cover duration-700"/>
+          </div>
+
+          <div class="relative z-10 flex flex-col items-center justify-center text-center px-4">
+            <h3 class="font-serif font-bold text-white text-5xl md:text-7xl lg:text-8xl leading-tight">
+              Have an idea?
+            </h3>
+            <h3 class="font-serif text-white text-5xl md:text-7xl lg:text-8xl leading-tight mt-2">
+              Let's talk.
+            </h3>
+
+            <a href="/contact/"
+              class="p-3 font-serif text-primary2 text-xl md:text-2xl mt-12 hover:text-white hover:underline underline-offset-10 transition-colors lowercase tracking-wide focus:outline-none focus:ring-2 focus:ring-primary2 focus:ring-inset">
+              get in touch
+            </a>
+
+            <!-- i need to get the soc links -->
+            <div class="flex items-center gap-6 mt-20 md:mt-24">
+              <a href="#" class="hover:text-primary2 transition-colors group focus:outline-none focus:ring-2 focus:ring-primary2 focus:ring-inset p-2">
+                <svg
+                  viewBox="0 0 40 40"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="size-8 md:size-12">
+                  <path
+                    d="M36.82 0.000279662H2.94C2.55916 -0.00500958 2.181 0.0647747 1.82713 0.205647C1.47326 0.34652 1.15061 0.555721 0.877595 0.821304C0.604583 1.08689 0.386563 1.40365 0.235984 1.7535C0.0854048 2.10335 0.00521679 2.47944 0 2.86028V37.1403C0.00521679 37.5211 0.0854048 37.8972 0.235984 38.2471C0.386563 38.5969 0.604583 38.9137 0.877595 39.1793C1.15061 39.4448 1.47326 39.654 1.82713 39.7949C2.181 39.9358 2.55916 40.0056 2.94 40.0003H36.82C37.2008 40.0056 37.579 39.9358 37.9329 39.7949C38.2867 39.654 38.6094 39.4448 38.8824 39.1793C39.1554 38.9137 39.3734 38.5969 39.524 38.2471C39.6746 37.8972 39.7548 37.5211 39.76 37.1403V2.86028C39.7548 2.47944 39.6746 2.10335 39.524 1.7535C39.3734 1.40365 39.1554 1.08689 38.8824 0.821304C38.6094 0.555721 38.2867 0.34652 37.9329 0.205647C37.579 0.0647747 37.2008 -0.00500958 36.82 0.000279662ZM12.06 33.4803H6.06V15.4803H12.06V33.4803ZM9.06 12.9603C8.23252 12.9603 7.43894 12.6316 6.85383 12.0465C6.26871 11.4613 5.94 10.6678 5.94 9.84028C5.94 9.0128 6.26871 8.21922 6.85383 7.63411C7.43894 7.04899 8.23252 6.72028 9.06 6.72028C9.49939 6.67045 9.94435 6.71399 10.3658 6.84805C10.7871 6.9821 11.1755 7.20366 11.5053 7.4982C11.8351 7.79275 12.0991 8.15364 12.2797 8.55724C12.4604 8.96085 12.5538 9.39807 12.5538 9.84028C12.5538 10.2825 12.4604 10.7197 12.2797 11.1233C12.0991 11.5269 11.8351 11.8878 11.5053 12.1824C11.1755 12.4769 10.7871 12.6985 10.3658 12.8325C9.94435 12.9666 9.49939 13.0101 9.06 12.9603ZM33.7 33.4803H27.7V23.8203C27.7 21.4003 26.84 19.8203 24.66 19.8203C23.9853 19.8252 23.3284 20.0368 22.7777 20.4266C22.227 20.8164 21.809 21.3656 21.58 22.0003C21.4235 22.4704 21.3557 22.9654 21.38 23.4603V33.4603H15.38C15.38 33.4603 15.38 17.1003 15.38 15.4603H21.38V18.0003C21.9251 17.0545 22.7178 16.2753 23.6729 15.7467C24.6279 15.218 25.7091 14.96 26.8 15.0003C30.8 15.0003 33.7 17.5803 33.7 23.1203V33.4803Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="text-white hover:text-primary2 transition-colors focus:outline-none focus:ring-2 focus:ring-primary2 focus:ring-inset p-2">
+                <svg
+                  viewBox="0 0 36 36"
+                  fill="none" 
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="size-8 md:size-12">
+                  <path
+                    d="M27.09 10.2367C26.8923 10.2339 26.6967 10.1958 26.5125 10.1242C26.4236 10.0868 26.3383 10.0416 26.2575 9.98917C26.1746 9.93369 26.0967 9.87095 26.025 9.80167C25.7456 9.51768 25.5893 9.13506 25.59 8.73667C25.5887 8.63834 25.5987 8.54019 25.62 8.44417C25.6359 8.34863 25.6636 8.25542 25.7025 8.16667C25.7397 8.07538 25.7848 7.98754 25.8375 7.90417C25.8937 7.82419 25.9564 7.74893 26.025 7.67917C26.0968 7.60994 26.1746 7.5472 26.2575 7.49167C26.3383 7.43898 26.4236 7.39356 26.5125 7.35592C26.6049 7.31823 26.7002 7.28813 26.7975 7.26592C27.0391 7.21891 27.2886 7.23202 27.524 7.30408C27.7594 7.37614 27.9735 7.50495 28.1475 7.67917C28.2179 7.74722 28.2807 7.82266 28.335 7.90417C28.3897 7.98753 28.4374 8.07533 28.4775 8.16667C28.5126 8.25672 28.5402 8.34954 28.56 8.44417C28.5772 8.54079 28.5872 8.63856 28.59 8.73667C28.5906 8.93468 28.5518 9.13084 28.4758 9.31369C28.3999 9.49654 28.2882 9.66243 28.1475 9.80167C28.0794 9.87237 28.0037 9.93526 27.9217 9.98917C27.8386 10.0418 27.751 10.0869 27.66 10.1242C27.5712 10.163 27.478 10.1907 27.3825 10.2067C27.2864 10.2279 27.1883 10.2379 27.09 10.2367ZM17.625 25.8247C16.0029 25.8247 14.4172 25.3437 13.0685 24.4425C11.7198 23.5413 10.6686 22.2604 10.0479 20.7617C9.42721 19.2631 9.26484 17.6141 9.58135 16.0232C9.89786 14.4323 10.679 12.9709 11.8261 11.824C12.9731 10.6771 14.4345 9.89603 16.0254 9.57967C17.6164 9.2633 19.2654 9.42582 20.764 10.0467C22.2625 10.6675 23.5433 11.7188 24.4444 13.0676C25.3455 14.4164 25.8264 16.0021 25.8262 17.6242C25.8238 19.7985 24.959 21.8832 23.4215 23.4207C21.884 24.9582 19.7993 25.823 17.625 25.8254V25.8247ZM17.625 11.6722C16.4477 11.672 15.2969 12.021 14.318 12.6749C13.3391 13.3288 12.5761 14.2583 12.1255 15.3459C11.6749 16.4335 11.5569 17.6303 11.7865 18.7849C12.0161 19.9395 12.5829 21.0001 13.4152 21.8326C14.2476 22.6651 15.3082 23.232 16.4628 23.4618C17.6174 23.6915 18.8141 23.5736 19.9018 23.1232C20.9894 22.6727 21.919 21.9098 22.5731 20.931C23.2271 19.9522 23.5762 18.8014 23.5762 17.6242C23.5746 16.0462 22.9471 14.5333 21.8314 13.4175C20.7157 12.3016 19.2029 11.674 17.625 11.6722Z"
+                    fill="currentColor"
+                  />
+                  <path
+                    d="M14.298 18.7491C13.9996 18.7491 13.7135 18.6306 13.5025 18.4196C13.2915 18.2087 13.173 17.9225 13.173 17.6241C13.1741 16.702 13.4611 15.8029 13.9945 15.0507C14.5279 14.2985 15.2814 13.7302 16.1512 13.4241C16.2913 13.372 16.4404 13.3483 16.5898 13.3545C16.7391 13.3606 16.8858 13.3964 17.0211 13.4599C17.1565 13.5234 17.2778 13.6131 17.3781 13.724C17.4783 13.8349 17.5555 13.9647 17.605 14.1057C17.6545 14.2467 17.6755 14.3962 17.6666 14.5455C17.6577 14.6947 17.6191 14.8406 17.5532 14.9748C17.4872 15.1089 17.3952 15.2286 17.2825 15.3268C17.1698 15.425 17.0387 15.4997 16.8967 15.5466C16.4665 15.6981 16.0937 15.9792 15.8298 16.3513C15.5659 16.7233 15.4238 17.168 15.423 17.6241C15.423 17.9225 15.3044 18.2087 15.0935 18.4196C14.8825 18.6306 14.5963 18.7491 14.298 18.7491Z"
+                    fill="currentColor"
+                  />
+                  <path
+                    d="M22.875 35.25H12.375C9.09416 35.246 5.94884 33.941 3.62894 31.6211C1.30904 29.3012 0.00396956 26.1558 0 22.875V12.375C0.00396956 9.09416 1.30904 5.94884 3.62894 3.62894C5.94884 1.30904 9.09416 0.00396956 12.375 0H22.875C26.1558 0.00396956 29.3012 1.30904 31.6211 3.62894C33.941 5.94884 35.246 9.09416 35.25 12.375V22.875C35.246 26.1558 33.941 29.3012 31.6211 31.6211C29.3012 33.941 26.1558 35.246 22.875 35.25ZM12.375 2.25C9.6906 2.25298 7.11699 3.32067 5.21883 5.21883C3.32067 7.11699 2.25298 9.6906 2.25 12.375V22.875C2.25298 25.5594 3.32067 28.133 5.21883 30.0312C7.11699 31.9293 9.6906 32.997 12.375 33H22.875C25.5594 32.997 28.133 31.9293 30.0312 30.0312C31.9293 28.133 32.997 25.5594 33 22.875V12.375C32.997 9.6906 31.9293 7.11699 30.0312 5.21883C28.133 3.32067 25.5594 2.25298 22.875 2.25H12.375Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+    </main>
+
+    <load src="partials/footer.html" />
+    <script type="module" src="/src/javascript/main.js"></script>
+  </body>
+</html>
